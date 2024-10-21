@@ -20,9 +20,8 @@ func NewProd(ch chan string) *Productor {
 func (p *Productor) Run() {
 	i := 0
 	for p.flag {
-		p.ch <- `Productor - ${i}`
+		p.ch <- fmt.Sprintf("P: %d", i)
 		time.Sleep(1000)
-		fmt.Sprintf("P: %d", i)
 		i++
 	}
 }

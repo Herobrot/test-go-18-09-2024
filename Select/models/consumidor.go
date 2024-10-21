@@ -20,9 +20,8 @@ func NewCon(ch chan string) *Consumidor {
 func (c *Consumidor) Run() {
 	i := 0
 	for c.flag {
-		c.ch <- `Consumidor - \{i}`
+		c.ch <- fmt.Sprintf("C: %d", i)
 		time.Sleep(1000)
-		fmt.Sprintf("C %d", i)
 		i++
 	}
 }
